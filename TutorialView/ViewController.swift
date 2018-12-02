@@ -1,59 +1,50 @@
-//
-//  ViewController.swift
-//  TutorialView
-//
-//  Created by 佐藤優 on 2018/12/01.
-//  Copyright © 2018 佐藤優. All rights reserved.
-//
-
+// ViewController.swift
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIViewController{
     
-    var tutorialCollectionView : UICollectionView!
+    var tutorialCollectionView: UICollectionView!
+    var layout: UICollectionViewFlowLayout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let collectionViewWidth = self.view.frame.width
-        let collectionViewHeight = self.view.frame.height
-        let collectionViewFrame = CGRect (x: 0, y: 0, width: collectionViewWidth, height: collectionViewHeight)
+        let viewWidth = self.view.frame.width
+        let viewHeight = self.view.frame.height
         
-        let lineSpacing:CGFloat = 0
-        let rowSpacing:CGFloat = 0
-        let margin:CGFloat = 0
+        let collectionViewFrame = CGRect (x: 0, y: 0, width: viewWidth, height: viewHeight)
         
-        // CollectionViewのレイアウトを生成.
-        let layout = UICollectionViewFlowLayout()
+        // CollectionViewのレイアウトを生成
+        layout = UICollectionViewFlowLayout()
         
-        // Cell一つ一つの大きさ.
-        layout.itemSize = CGSize(width: collectionViewWidth - rowSpacing, height: collectionViewHeight - lineSpacing)
+        // Cell一つ一つの大きさを設定
+        layout.itemSize = CGSize(width: viewWidth, height: viewHeight)
         
-        // Cellの行間隔
-        layout.minimumLineSpacing = lineSpacing
-
-        // Cellの列間隔
-        layout.minimumInteritemSpacing = rowSpacing
-
-        // Cellのマージン.
-        layout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+        // Cellの行間隔を設定
+        layout.minimumLineSpacing = 0
         
-        // スクロールの方向を横にする
+        // Cellの列間隔を設定
+        layout.minimumInteritemSpacing = 0
+        
+        // CollectionViewのスクロールの方向を横にする
         layout.scrollDirection = .horizontal
         
-        // CollectionViewを生成.
+        // CollectionViewを生成
         tutorialCollectionView = UICollectionView(frame: collectionViewFrame, collectionViewLayout: layout)
         
-        // Cellに使われるクラスを登録.
+        // Cellに使われるクラスを登録
         tutorialCollectionView.register(CustomUICollectionViewCell.self, forCellWithReuseIdentifier: "CustomCell")
         
-        tutorialCollectionView.delegate = self
+        // dataSourceを自身に設定
         tutorialCollectionView.dataSource = self
         
+        // ページングさせる
         tutorialCollectionView.isPagingEnabled = true
         
-        tutorialCollectionView.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.25)
+        // ScrollIndicatorを非表示にする
+        tutorialCollectionView.showsHorizontalScrollIndicator = false
         
+        // CollectionViewをViewに追加する
         self.view.addSubview(tutorialCollectionView)
         
     }
@@ -61,15 +52,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidAppear(_ animated: Bool) {
         // ViewDidLoadではSafeAreaが取得できないのでここでリサイズ
         let safeArea = self.view.safeAreaInsets
-        let collectionViewWidth = self.view.frame.width
-        let collectionViewHeight = self.view.frame.height
-        let collectionViewFrame = CGRect (x: safeArea.left, y: safeArea.top, width: collectionViewWidth - safeArea.left, height: collectionViewHeight - safeArea.top - safeArea.bottom)
+        let viewWidth = self.view.frame.width
+        let viewHeight = self.view.frame.height
+        let collectionViewFrame = CGRect (x: safeArea.left, y: safeArea.top, width: viewWidth - safeArea.left, height: viewHeight - safeArea.top - safeArea.bottom)
+        
+        layout.itemSize = CGSize(width: viewWidth - safeArea.left, height: viewHeight - safeArea.top - safeArea.bottom)
         
         tutorialCollectionView.frame = collectionViewFrame
         
     }
     
-    // Cellの総数を返す
+}
+
+extension ViewController: UICollectionViewDataSource{
+    
+    // Cellの数を設定
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -79,6 +76,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let cell : CustomUICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath as IndexPath) as! CustomUICollectionViewCell
         
+        // Cellに応じてbackgroundColorを変更
         switch indexPath.row {
         case 0:
             cell.backgroundColor = UIColor.blue
