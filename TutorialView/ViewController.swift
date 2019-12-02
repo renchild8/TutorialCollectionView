@@ -1,10 +1,10 @@
 
 import UIKit
 
-class ViewController: UIViewController{
+class ViewController: UIViewController {
     
-    var tutorialCollectionView: TutorialCollectionView!
-    var layout: UICollectionViewFlowLayout!
+    private lazy var tutorialCollectionView = TutorialCollectionView()
+    private var layout = UICollectionViewFlowLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,7 +14,7 @@ class ViewController: UIViewController{
         setTutorialCollectionView()
     }
     
-    func setTutorialCollectionView() {
+    private func setTutorialCollectionView() {
         let safeArea = self.view.safeAreaInsets
         let viewWidth = self.view.frame.width
         let viewHeight = self.view.frame.height
@@ -34,7 +34,7 @@ class ViewController: UIViewController{
         self.view.addSubview(tutorialCollectionView)
     }
     
-    func setLayout(width: CGFloat, height: CGFloat) -> UICollectionViewFlowLayout {
+    private func setLayout(width: CGFloat, height: CGFloat) -> UICollectionViewFlowLayout {
         // CollectionViewのレイアウトを生成
         let layout = UICollectionViewFlowLayout()
         

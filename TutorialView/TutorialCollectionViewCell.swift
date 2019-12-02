@@ -3,9 +3,9 @@ import UIKit
 
 class TutorialCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "TutorialCollectionViewCell"
+    public static let identifier = "TutorialCollectionViewCell"
     
-    var pageNumberLabel = UILabel()
+    private var pageNumberLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -16,7 +16,7 @@ class TutorialCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addLabel() {
+    private func addLabel() {
         // UILabelを生成.
         pageNumberLabel = UILabel(frame: CGRect(x:0, y:0, width:frame.width, height:frame.height))
         pageNumberLabel.text = ""
@@ -26,7 +26,7 @@ class TutorialCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(pageNumberLabel)
     }
     
-    func setCell(indexPath: IndexPath) {
+    public func setCell(indexPath: IndexPath) {
         // Cellに応じてbackgroundColorを変更
         switch indexPath.row {
         case 0:
