@@ -14,7 +14,7 @@ class TutorialCollectionView: UICollectionView {
     
     func setup() {
         // Cellに使われるクラスを登録
-        self.register(CustomUICollectionViewCell.self, forCellWithReuseIdentifier: "CustomCell")
+        self.register(TutorialCollectionViewCell.self, forCellWithReuseIdentifier: TutorialCollectionViewCell.identifier)
         
         // dataSourceを自身に設定
         self.dataSource = self
@@ -35,29 +35,12 @@ extension TutorialCollectionView: UICollectionViewDataSource {
     
     // Cellに値を設定する
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell : CustomUICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath as IndexPath) as! CustomUICollectionViewCell
-        
-        // Cellに応じてbackgroundColorを変更
-        switch indexPath.row {
-        case 0:
-            cell.backgroundColor = UIColor.blue
-        case 1:
-            cell.backgroundColor = UIColor.orange
-        case 2:
-            cell.backgroundColor = UIColor.yellow
-        case 3:
-            cell.backgroundColor = UIColor.green
-        case 4:
-            cell.backgroundColor = UIColor.red
-        default:
-            break
-        }
-        
-        cell.textLabel?.text = "\(indexPath.row + 1)ページ目"
+        // Cellを取得
+        guard let cell : TutorialCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: TutorialCollectionViewCell.identifier, for: indexPath as IndexPath) as? TutorialCollectionViewCell else { return UICollectionViewCell() }
+        // Cellに値を設定する
+        cell.setCell(indexPath: indexPath)
         
         return cell
-        
     }
     
 }
