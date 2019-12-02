@@ -39,7 +39,7 @@ extension TutorialCollectionView: UICollectionViewDataSource {
     // Cellに値を設定する
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // Cellを取得
-        guard let cell: TutorialCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: TutorialCollectionViewCell.identifier, for: indexPath as IndexPath) as? TutorialCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TutorialCollectionViewCell.identifier, for: indexPath as IndexPath) as? TutorialCollectionViewCell else { return UICollectionViewCell() }
         // Cellに値を設定する
         cell.setCell(indexPath: indexPath)
         
@@ -47,5 +47,3 @@ extension TutorialCollectionView: UICollectionViewDataSource {
     }
     
 }
-
-
