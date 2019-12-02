@@ -15,6 +15,7 @@
 		F014CB0021B22FB700B06AB4 /* TutorialViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F014CAFF21B22FB700B06AB4 /* TutorialViewTests.swift */; };
 		F014CB0B21B22FB700B06AB4 /* TutorialViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F014CB0A21B22FB700B06AB4 /* TutorialViewUITests.swift */; };
 		F014CB1B21B2310F00B06AB4 /* CustomUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F014CB1A21B2310F00B06AB4 /* CustomUICollectionViewCell.swift */; };
+		F0341FCB2394B16A00FDBEF9 /* TutorialCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0341FCA2394B16A00FDBEF9 /* TutorialCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F014CB0A21B22FB700B06AB4 /* TutorialViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewUITests.swift; sourceTree = "<group>"; };
 		F014CB0C21B22FB700B06AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F014CB1A21B2310F00B06AB4 /* CustomUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUICollectionViewCell.swift; sourceTree = "<group>"; };
+		F0341FCA2394B16A00FDBEF9 /* TutorialCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				F014CAEA21B22FB500B06AB4 /* AppDelegate.swift */,
 				F014CAEC21B22FB500B06AB4 /* ViewController.swift */,
+				F0341FCA2394B16A00FDBEF9 /* TutorialCollectionView.swift */,
 				F014CB1A21B2310F00B06AB4 /* CustomUICollectionViewCell.swift */,
 				F014CAEE21B22FB500B06AB4 /* Main.storyboard */,
 				F014CAF121B22FB700B06AB4 /* Assets.xcassets */,
@@ -261,6 +264,7 @@
 			files = (
 				F014CAED21B22FB500B06AB4 /* ViewController.swift in Sources */,
 				F014CAEB21B22FB500B06AB4 /* AppDelegate.swift in Sources */,
+				F0341FCB2394B16A00FDBEF9 /* TutorialCollectionView.swift in Sources */,
 				F014CB1B21B2310F00B06AB4 /* CustomUICollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,7 +450,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.renchild.TutorialView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -464,7 +468,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.renchild.TutorialView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
