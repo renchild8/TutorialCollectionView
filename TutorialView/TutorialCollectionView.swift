@@ -24,6 +24,9 @@ class TutorialCollectionView: UICollectionView {
         
         // ScrollIndicatorを非表示にする
         self.showsHorizontalScrollIndicator = false
+        
+        // BackgroundColorを白にする。
+        self.backgroundColor = .white
     }
 }
 
