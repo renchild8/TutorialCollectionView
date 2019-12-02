@@ -1,4 +1,4 @@
-// CustomUICollectionViewCell
+
 import UIKit
 
 class CustomUICollectionViewCell : UICollectionViewCell{

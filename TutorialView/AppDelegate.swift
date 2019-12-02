@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  TutorialView
-//
-//  Created by 佐藤優 on 2018/12/01.
-//  Copyright © 2018 佐藤優. All rights reserved.
-//
 
 import UIKit
 
